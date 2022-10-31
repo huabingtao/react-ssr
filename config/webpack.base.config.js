@@ -21,6 +21,16 @@ module.exports = {
               }
           }
       },
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          'style-loader',
+          'css-loader',
+          "postcss-loader",
+          'less-loader',
+        ],
+      }
     ]
   },
   output: {
