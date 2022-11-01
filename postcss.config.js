@@ -17,11 +17,14 @@ module.exports = (api) => {
     plugins: [
       // PostCSS 插件
       'postcss-preset-env',
-      ['postcss-pxtorem',{
-        rootValue: 37.5,
-        exclude: /node_modules/i
-      }],
-      
+      // ['postcss-pxtorem',{
+      //   rootValue: 16, // html节点fontsize
+      //   exclude: /node_modules/i
+      // }],
+      ['postcss-px-to-viewport',{ // https://github.com/evrone/postcss-px-to-viewport/blob/master/README_CN.md
+        viewportWidth: 375,
+        exclude: /node_modules/i,
+      }]
     ],
   };
 };
