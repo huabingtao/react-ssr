@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: path.resolve(__dirname,'..','client/index.js'),
   mode: 'development',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, '..','dist'),
+  },
   module: {
     rules: [
       {
@@ -43,13 +47,9 @@ module.exports = {
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
         type: 'asset/inline',
+        include: path.resolve(__dirname, '..', 'client')
       },
     ]
-  },
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, '..','dist'),
-    clean: true
   },
   resolve: {
     // 设置路径别名
@@ -57,7 +57,7 @@ module.exports = {
         '@': path.resolve(__dirname, '..', 'client'),
     },
     // 文件后缀自动补全, 就是你import文件的时候如果没写后缀名就会优先找下面这几个
-    extensions: [ '.js', '.jsx' ],
+    extensions: [ '.js', '.jsx', '.tsx', '.ts' ],
   },
   plugins: [
     new HtmlWebpackPlugin({

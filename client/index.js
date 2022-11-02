@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.less'
 import Live2D from  './assets/Live2D.png'
 
@@ -10,5 +10,5 @@ function App() {
       <img src={Live2D} width="200px"></img>
     </div>
 }
-
-render(<App/>, document.getElementById('app'));
+createRoot(document.getElementById('app')).render(<App />)
+// render(<App/>, document.getElementById('app'));
