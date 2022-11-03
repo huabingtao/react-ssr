@@ -1,6 +1,7 @@
 const path = require('path');
 const { resolve } = require('../utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname,'..','client/index.js'),
@@ -29,7 +30,8 @@ module.exports = {
         test: /\.less$/i,
         use: [
           // compiles Less to CSS
-          'style-loader',
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           "postcss-loader",
           'less-loader',
@@ -63,6 +65,7 @@ module.exports = {
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(__dirname, '..', 'public/index.html')
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 };

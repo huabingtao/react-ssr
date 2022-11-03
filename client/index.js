@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import './reset.less'
 import './index.less'
 import Live2D from  './assets/Live2D.png'
 
