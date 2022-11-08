@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 import Home from "./pages/home/index";
 import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";

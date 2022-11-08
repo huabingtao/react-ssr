@@ -12,12 +12,15 @@ const fakeAuthProvider = {
   },
 };
 
+export let AuthContext = React.createContext(null);
 
-
+export function useAuth() {
+  return React.useContext(AuthContext);
+}
 
 function AuthProvider({ children }) {
   let [user, setUser] = React.useState(null);
-  let AuthContext = React.createContext(null);
+  
   let signin = (newUser, callback) => {
     return fakeAuthProvider.signin(() => {
       setUser(newUser);
