@@ -23,7 +23,7 @@ export default function Home() {
       <div>{demo1}</div>
       <div>
         <button onClick={()=>{
-          import( /* webpackPrefetch: true */ '../../components/PrefetchModel.js').then(res=>{
+          import( /* webpackChunkName: "PerfetchModel" */ /* webpackPrefetch: true */ '../../components/PrefetchModel.js').then(res=>{
             const Comp = res.default
             setDemo2Component(<Comp />)
           })
