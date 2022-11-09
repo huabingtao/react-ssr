@@ -4,7 +4,6 @@ import About from "../pages/about";
 import Home from "../pages/home";
 import Login from '../pages/login';
 import NoMatch from "../pages/noMatch";
-console.log('aaa:',lazy(() => import('../pages/home')))
 const AboutLazy = lazy(()=> import('../pages/about'))
 const RequireAuthLazy = lazy(()=> import('../components/RequireAuth'))
 
