@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Suspense } from 'react'
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/home/index";
@@ -12,7 +12,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
         {
-          routers.map((item,index)=>(<Route key={index} path={item.path} element={item.element} />))
+          routers.map((item,index)=>(<Route key={index} path={item.path} element={
+            <Suspense fallback={
+              <div>路由懒加载...</div>
+            }>
+              <item.element />
+            </Suspense>
+          } />))
         }
           {/* <Route index element={<Home />} />
           <Route path="about" element={<About></About>} />

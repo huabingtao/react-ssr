@@ -1,25 +1,29 @@
-import * as React from 'react'
+import React, {lazy} from 'react'
 import RequireAuth from '../components/RequireAuth';
 import About from "../pages/about";
 import Home from "../pages/home";
 import Login from '../pages/login';
 import NoMatch from "../pages/noMatch";
+console.log('aaa:',lazy(() => import('../pages/home')))
+const AboutLazy = lazy(()=> import('../pages/about'))
+const RequireAuthLazy = lazy(()=> import('../components/RequireAuth'))
 
 const routers = [{
   index:true,
   path: '/',
-  element: <Home />
-},{
+  element: lazy(() => import('../pages/home'))
+},
+{
   path: '/about',
-  element: <RequireAuth>
-    <About></About>
-  </RequireAuth>
-},{
+  element: lazy(()=> import('../pages/about'))
+},
+{
   path: '/login',
-  element: <Login />
+  element: lazy(()=> import('../pages/login'))
 },{
   path: '*',
-  element: <NoMatch />
+  // element: <NoMatch />
+  element: lazy(()=> import('../pages/noMatch'))
 }]
 
 export default routers
